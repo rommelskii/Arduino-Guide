@@ -30,6 +30,17 @@ void loop() {
     break;
   }
 
+if(ledState == 2) {
+  digitalWrite(13,HIGH);
+
+
+  }
+
+
+  if(ledState == 0) {
+  digitalWrite(13,LOW);}
+  
+
 
   Serial.println(ledState);
 
