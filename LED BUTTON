@@ -1,0 +1,37 @@
+void setup () {
+  Serial.begin(9600);
+  pinMode(8, INPUT);
+  pinMode(9, INPUT); 
+  pinMode(10, INPUT);
+  pinMode(13, OUTPUT);
+  
+}
+
+void loop() {
+  byte read8 = digitalRead(8);
+  byte read9 = digitalRead(9);
+  byte read10 = digitalRead(10);
+
+  static byte ledState;
+
+  if (read8 == HIGH) {
+    ledState = 1;
+  } else if (read9 == HIGH) {
+    ledState = 2;
+  } else if (read10 == HIGH) {
+    ledState = 0;
+  }
+
+  while(ledState == 1) {
+    digitalWrite(13, HIGH);
+    delay(500);
+    digitalWrite(13, LOW);
+    delay(500);
+    break;
+  }
+
+
+  Serial.println(ledState);
+
+
+}
